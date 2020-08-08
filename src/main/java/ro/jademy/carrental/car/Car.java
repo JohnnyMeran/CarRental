@@ -1,6 +1,6 @@
-package ro.jademy.carrental;
+package ro.jademy.carrental.car;
 
-public class Car {
+public abstract class Car {
 
     // Q: how can we better represent the car make?
     public String make;
@@ -26,6 +26,25 @@ public class Car {
     // Q: how can we better represent money value?
     public String basePrice;
 
-    // Q: do we need a constructor other than the default one?
+    public Car(){
+
+    }
+
+    @Override
+    public String toString() {
+        return "Car{" +
+                "make='" + make + '\'' +
+                ", model='" + model + '\'' +
+                ", year=" + year +
+                ", carType='" + carType + '\'' +
+                ", fuelType='" + fuelType + '\'' +
+                ", doorNumber=" + doorNumber +
+                ", color='" + color + '\'' +
+                ", transmissionType='" + transmissionType + '\'' +
+                ", engine='" + engine + '\'' +
+                ", basePrice='" + basePrice + '\'' +
+                '}';
+    }
+// Q: do we need a constructor other than the default one?
     // Q: how can we better protect the car data?
 }
