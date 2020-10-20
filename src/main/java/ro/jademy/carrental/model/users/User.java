@@ -1,16 +1,33 @@
-package ro.jademy.carrental.users;
+package ro.jademy.carrental.model.users;
 
-public abstract class Users {
+public abstract class User {
+    protected int userId;
     protected String firstName;
     protected String lastName;
     protected String userName;
     protected String passWord;
 
-    public Users(String firstName, String lastName, String userName, String passWord) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.userName = userName;
-        this.passWord = passWord;
+    public User(){
+
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + userId +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", userName='" + userName + '\'' +
+                ", passWord='" + passWord + '\'' +
+                '}';
+    }
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
     public String getFirstName() {

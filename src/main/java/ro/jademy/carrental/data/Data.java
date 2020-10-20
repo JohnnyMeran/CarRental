@@ -1,17 +1,17 @@
 package ro.jademy.carrental.data;
 
-import ro.jademy.carrental.car.Car;
-import ro.jademy.carrental.car.Dacia;
-import ro.jademy.carrental.car.make.Audi;
-import ro.jademy.carrental.users.Administrator;
-import ro.jademy.carrental.users.Customer;
-import ro.jademy.carrental.users.Salesman;
-import ro.jademy.carrental.users.Users;
+import ro.jademy.carrental.model.car.Car;
+import ro.jademy.carrental.model.car.Dacia;
+import ro.jademy.carrental.model.car.Audi;
+import ro.jademy.carrental.model.users.Administrator;
+import ro.jademy.carrental.model.users.Client;
+import ro.jademy.carrental.model.users.Employee;
+import ro.jademy.carrental.model.users.User;
 
 import java.util.ArrayList;
 
 public class Data {
-    public static ArrayList<Users> users = new ArrayList<>();
+    public static ArrayList<User> users = new ArrayList<>();
     public static ArrayList<Car> carList = new ArrayList<>();
 
     public static ArrayList<Car> carList() {
@@ -24,19 +24,19 @@ public class Data {
         return carList;
     }
 
-    public static ArrayList<Users> userList() {
+    public static ArrayList<User> userList() {
         users.add(new Administrator("Johnny", "Meran", "John", "1234"));
-        users.add(new Salesman("Alexandru", "Patro", "Alex", "1234"));
-        users.add(new Salesman("George", "Respa", "Geo", "1234"));
-        users.add(new Customer("Florin", "Carata", "Flo", "1234"));
+        users.add(new Employee("Alexandru", "Patro", "Alex", "1234",1));
+        users.add(new Employee("George", "Respa", "Geo", "1234",1));
+        users.add(new Client("Florin", "Carata", "Flo", "1234"));
         return users;
     }
 
-    public static void carListMixer(ArrayList<Users> userList, ArrayList<Car> carList) {
+    public static void carListMixer(ArrayList<User> userList, ArrayList<Car> carList) {
         while (carList.size() > 0) {
-            for (Users user : userList) {
-                if (user instanceof Salesman) {
-                    ((Salesman) user).availableCars.add(carList.remove(0));
+            for (User user : userList) {
+                if (user instanceof Employee) {
+                    ((Employee) user).availableCars.add(carList.remove(0));
                 }
             }
         }

@@ -1,23 +1,20 @@
 package ro.jademy.carrental.shop;
 
-import ro.jademy.carrental.car.Car;
-import ro.jademy.carrental.data.Data;
-import ro.jademy.carrental.users.Salesman;
-import ro.jademy.carrental.users.Users;
+import ro.jademy.carrental.model.car.Car;
+import ro.jademy.carrental.model.users.Employee;
+import ro.jademy.carrental.model.users.User;
 
-import java.sql.SQLOutput;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Shop {
     // Q: what fields and methods should this class contain?
-    protected ArrayList<Users> userList = new ArrayList<>();
+    protected ArrayList<User> userList = new ArrayList<>();
     protected Scanner userInput = new Scanner(System.in);
     protected static boolean exit;
     protected static boolean logout;
 
-    public Shop(ArrayList<Users> userList) {
+    public Shop(ArrayList<User> userList) {
         this.userList.addAll(userList);//TODO this.userList = userList;
     }
 
@@ -33,7 +30,7 @@ public class Shop {
 
     private boolean login(String username, String password) {
         // TODO: implement a basic user login
-        for (Users user : userList) {
+        for (User user : userList) {
             if (user.getUserName().equals(username)) {
                 if (user.getPassWord().equals(password)) {
                     System.out.println("Login Successful");
@@ -68,7 +65,7 @@ public class Shop {
         System.out.println("6. Exit");
         switch (userInput.nextInt()) {
             case 1:
-                listAllCar();
+                /*listAllCar();*/
                 break;
             case 2:
                 listAvailableCar();
@@ -86,18 +83,18 @@ public class Shop {
         return logout;
     }
 
-    private void listAllCar() {
+   /* private void listAllCar() {
         for (Car car : this.carList) {
             System.out.println(car.toString());
         }
-    }
+    }*/
 
     private void listAvailableCar() {
-        for (Users user : userList) {
-            if (user instanceof Salesman) {
+        for (User user : userList) {
+            if (user instanceof Employee) {
                 System.out.println(user.getFirstName());
-                for (int i = 0; i < ((Salesman) user).availableCars.size(); i++) {
-                    System.out.println(((Salesman) user).availableCars.get(i).toString());
+                for (int i = 0; i < ((Employee) user).availableCars.size(); i++) {
+                    System.out.println(((Employee) user).availableCars.get(i).toString());
                 }
             }
         }

@@ -1,6 +1,6 @@
-package ro.jademy.carrental.car.make;
+package ro.jademy.carrental.model.car;
 
-import ro.jademy.carrental.car.Car;
+import ro.jademy.carrental.model.car.Car;
 
 public class Audi extends Car {
     public Audi(String model, Integer year, String carType, String fuelType, Integer doorNumber, String color, String transmissionType, String engine, String basePrice) {

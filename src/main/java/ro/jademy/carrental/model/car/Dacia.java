@@ -1,4 +1,4 @@
-package ro.jademy.carrental.car;
+package ro.jademy.carrental.model.car;
 
 public class Dacia extends Car {
     public Dacia(String model, Integer year, String carType, String fuelType, Integer doorNumber, String color, String transmissionType, String engine, String basePrice) {
